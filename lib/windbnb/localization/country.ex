@@ -3,10 +3,12 @@ defmodule Windbnb.Localization.Country do
   import Ecto.Changeset
 
   alias Windbnb.Localization.City
+  alias Windbnb.Localization.Stay
 
   schema "countries" do
     field :name, :string
     has_many :cities, City
+    has_many :stays, Stay
 
     timestamps()
   end
