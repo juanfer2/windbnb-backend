@@ -13,6 +13,20 @@ defmodule WindbnbWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: WindbnbWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: WindbnbWeb.Endpoint}
+
+    forward "/", Absinthe.Plug,
+      schema: WindbnbWeb.Schema,
+      adapter: Absinthe.Adapter.LanguageConventions,
+      json_codec: Jason
+  end
+
   scope "/", WindbnbWeb do
     pipe_through :browser
 
