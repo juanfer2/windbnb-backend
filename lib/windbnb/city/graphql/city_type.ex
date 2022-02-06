@@ -1,4 +1,4 @@
-defmodule WindbnbWeb.Types.CityType do
+defmodule Windbnb.Modules.City.Graphql.CityType do
   use Absinthe.Schema.Notation
 
   import_types Absinthe.Type.Custom

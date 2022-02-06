@@ -1,4 +1,4 @@
-defmodule Windbnb.Localization.Stay do
+defmodule Windbnb.Modules.Stay do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -28,19 +28,3 @@ defmodule Windbnb.Localization.Stay do
     stay.city.name
   end
 end
-#
-# ...
-# def changeset(%User{} = user, attrs) do
-#   user
-#   |> cast(attrs, [:email, :encrypted_password, :first_name, :last_name])
-#   |> build_full_name()
-#   |> validate_required([:email, :encrypted_password, :full_name])
-#   |> unique_constraint(:email)
-#   |> update_change(:encrypted_password, &Bcrypt.hashpwsalt/1)
-# end
-# 
-# defp build_full_name(changeset) do
-#   first_name = get_field(changeset, :first_name)
-#   last_name = get_field(changeset, :last_name)
-#   put_change(changeset, :full_name, "#{first_name} #{last_name}")
-# end

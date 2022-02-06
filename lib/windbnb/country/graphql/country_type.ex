@@ -1,4 +1,4 @@
-defmodule WindbnbWeb.Types.CountryType do
+defmodule Windbnb.Modules.Country.Graphql.CountryType do
   use Absinthe.Schema.Notation
 
   object :country do

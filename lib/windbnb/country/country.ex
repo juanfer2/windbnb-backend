@@ -1,4 +1,4 @@
-defmodule Windbnb.Localization.Country do
+defmodule Windbnb.Modules.Country do
   use Ecto.Schema
   import Ecto.Changeset
 

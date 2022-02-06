@@ -1,45 +1,19 @@
 defmodule WindbnbWeb.Schema do
   use Absinthe.Schema
-  
-  import_types WindbnbWeb.Types.CountryType
-  import_types WindbnbWeb.Types.CityType
 
-  alias WindbnbWeb.Resolvers.CountryResolver
-  alias WindbnbWeb.Resolvers.CityResolver
+  import_types Windbnb.Modules.Country.Graphql.CountrySchema
+  import_types Windbnb.Modules.City.Graphql.CitySchema
+  import_types Windbnb.Schema.StaySchema
 
   query do
-    @desc "Get countries"
-    field :countries, list_of(:country) do
-      resolve(&CountryResolver.countries/3)
-    end
-  
-    @desc "Get country by id"
-    field :country, type: :country do
-      arg :id, non_null(:id)
-
-      resolve(&CountryResolver.get_country/3)
-    end
-
-    @desc "Get cities"
-    field :cities, list_of(:city) do
-      resolve(&CityResolver.cities/3)
-    end
+    import_fields :country_queries
+    import_fields :city_queries
+    import_fields :stay_queries
   end
 
   mutation do
-    @desc "Create country"
-    field :create_country, type: :country do
-      arg :name, non_null(:string)
-
-      resolve(&CountryResolver.create_country/3)
-    end
-
-    @desc "Create city"
-    field :create_city,  type: :city do
-      arg :country_id, :id
-      arg :name, non_null(:string)
-
-      resolve(&CityResolver.create_city/3)
-    end
+    import_fields :country_mutations
+    import_fields :city_mutations
+    import_fields :stay_mutations
   end
 end

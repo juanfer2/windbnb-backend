@@ -1,4 +1,4 @@
-defmodule Windbnb.Localization.City do
+defmodule Windbnb.Modules.City do
   use Ecto.Schema
   import Ecto.Changeset
 
